@@ -47,3 +47,26 @@ function startTim() {
 function pauseTim() { clearInterval(ti); ti = null; }
 
 function resetTim() { pauseTim(); sec = 0; updateTim(); }
+
+// Slow auto-scroll
+let scrollRaf = null;
+
+function toggleSlowScroll() {
+  const btn = document.getElementById('scroll-btn');
+  if (scrollRaf) {
+    cancelAnimationFrame(scrollRaf);
+    scrollRaf = null;
+    btn.style.color = '';
+    btn.textContent = '🐢';
+    return;
+  }
+  btn.style.color = '#22D3EE';
+  btn.textContent = '🐢';
+  const step = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (window.scrollY >= max) { scrollRaf = null; btn.style.color = ''; return; }
+    window.scrollBy(0, 0.3);
+    scrollRaf = requestAnimationFrame(step);
+  };
+  scrollRaf = requestAnimationFrame(step);
+}
