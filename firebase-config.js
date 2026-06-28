@@ -1,13 +1,13 @@
 // Configuración de Firebase
-// ⚠️ REEMPLAZA estos valores con los de tu proyecto Firebase
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROYECTO.firebaseapp.com",
-  projectId: "TU_PROYECTO",
-  storageBucket: "TU_PROYECTO.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID",
-  databaseURL: "https://TU_PROYECTO-default-rtdb.firebaseio.com"
+  apiKey: "AIzaSyAytS5R-avpHCJr-haj1KNmfLtfe4MfpdM",
+  authDomain: "ai-presentacion-votos.firebaseapp.com",
+  databaseURL: "https://ai-presentacion-votos-default-rtdb.firebaseio.com",
+  projectId: "ai-presentacion-votos",
+  storageBucket: "ai-presentacion-votos.firebasestorage.app",
+  messagingSenderId: "3439249753",
+  appId: "1:3439249753:web:fcea7a7476645fe457a448",
+  measurementId: "G-297133FJBS"
 };
 
 firebase.initializeApp(firebaseConfig);
