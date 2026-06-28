@@ -121,6 +121,15 @@ section{padding:90px 20px}
 .c-body{color:var(--muted);font-size:.85rem;line-height:1.7}
 .c-vs{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:.9rem;box-shadow:0 0 32px rgba(109,40,217,0.35);flex-shrink:0;margin:auto}
 
+/* Voting box */
+.vote-box{text-align:center;margin-top:40px;padding:24px;background:var(--glass);border:1px solid var(--border);border-radius:16px;backdrop-filter:blur(12px)}
+.vote-question{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;margin-bottom:16px}
+.vote-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.vote-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:12px;padding:10px 22px;color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .25s}
+.vote-btn:hover{background:rgba(255,255,255,0.12);border-color:var(--cyan);transform:translateY(-2px)}
+.vote-btn.selected{background:rgba(34,211,238,0.12);border-color:var(--cyan);box-shadow:0 0 20px rgba(34,211,238,0.2)}
+.vote-pct{font-size:.7rem;font-weight:600;color:var(--cyan);min-width:28px;text-align:right}
+
 /* Conclusion */
 #conclusion{background:rgba(30,41,59,0.3)}
 .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:40px;margin-bottom:40px}

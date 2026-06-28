@@ -21,6 +21,21 @@ function toggleArg(el) {
   el.classList.toggle('expanded');
 }
 
+// Voting
+let voted = false;
+const votes = { agree: 0, disagree: 0 };
+
+function vote(choice) {
+  if (voted) return;
+  voted = true;
+  document.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('pct-' + choice).parentElement.classList.add('selected');
+  votes[choice]++;
+  const total = votes.agree + votes.disagree;
+  document.getElementById('pct-agree').textContent = Math.round((votes.agree / total) * 100) + '%';
+  document.getElementById('pct-disagree').textContent = Math.round((votes.disagree / total) * 100) + '%';
+}
+
 // Floating timer
 let ti = null, sec = 0;
 
