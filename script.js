@@ -1,59 +1,49 @@
-// ─── Progress bar + back to top ───
+// Progress bar + back to top
 window.addEventListener('scroll', () => {
   const el = document.documentElement;
   const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
-  document.getElementById('progress-bar').style.width = pct + '%';
-
+  document.getElementById('progress').style.width = pct + '%';
   const btn = document.getElementById('back-top');
   btn.classList.toggle('visible', el.scrollTop > 400);
 });
 
-// ─── Reveal on scroll ───
+// Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
+const obs = new IntersectionObserver(entries => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
   });
 }, { threshold: 0.12 });
-reveals.forEach(r => observer.observe(r));
+reveals.forEach(r => obs.observe(r));
 
-// ─── Evidence toggle ───
-function toggleEvidence(btn) {
-  const content = btn.parentElement.querySelector('.evidence-content');
-  const arrow = btn.querySelector('.arrow');
+// Evidence toggle
+function toggleEv(btn) {
+  const content = btn.parentElement.querySelector('.ev-content');
   content.classList.toggle('open');
-  arrow.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+  btn.textContent = content.classList.contains('open') ? '📊 Evidence ▴' : '📊 Evidence ▾';
 }
 
-// ─── Timer ───
-let timerInterval = null, seconds = 0;
+// Floating timer
+let ti = null, sec = 0;
 
-function openPractice() { document.getElementById('practice-overlay').classList.add('active'); }
-
-function closePractice() {
-  document.getElementById('practice-overlay').classList.remove('active');
-  stopTimer();
+function toggleTimer() {
+  document.getElementById('timer-box').classList.toggle('closed');
 }
 
-function updateDisplay() {
-  const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-  const s = String(seconds % 60).padStart(2, '0');
-  const el = document.getElementById('practice-time');
-  el.textContent = `${m}:${s}`;
-  el.style.background = seconds >= 300
-    ? 'linear-gradient(135deg, #F87171, #EF4444)'
-    : seconds >= 180
-      ? 'linear-gradient(135deg, #FBBF24, #22D3EE)'
-      : 'linear-gradient(135deg, #8B5CF6, #22D3EE)';
-  el.style.webkitBackgroundClip = 'text';
-  el.style.backgroundClip = 'text';
+function updateTim() {
+  const m = String(Math.floor(sec / 60)).padStart(2, '0');
+  const s = String(sec % 60).padStart(2, '0');
+  const el = document.getElementById('timer-display');
+  el.textContent = m + ':' + s;
+  el.style.color = sec >= 300 ? '#F87171' : sec >= 180 ? '#FBBF24' : '#22D3EE';
 }
 
-function startTimer() {
-  if (timerInterval) return;
-  timerInterval = setInterval(() => { seconds++; updateDisplay(); }, 1000);
+function startTim() {
+  if (ti) return;
+  document.getElementById('timer-box').classList.remove('closed');
+  ti = setInterval(() => { sec++; updateTim(); }, 1000);
 }
 
-function stopTimer() { clearInterval(timerInterval); timerInterval = null; }
+function pauseTim() { clearInterval(ti); ti = null; }
 
-function resetTimer() { stopTimer(); seconds = 0; updateDisplay(); }
+function resetTim() { pauseTim(); sec = 0; updateTim(); }
