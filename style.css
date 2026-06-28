@@ -1,0 +1,317 @@
+/* ─── Reset ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#faf9f7;
+  color:#1a1a2e;
+  overflow:hidden;
+  height:100vh;
+}
+
+/* ─── Slides ─── */
+#slides{
+  display:flex;
+  height:100vh;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+.slide{
+  min-width:100vw;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:80px 10vw;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ─── Typography ─── */
+.s-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4.5vw,4.2rem);
+  font-weight:700;
+  line-height:1.15;
+  margin-bottom:20px;
+  color:#1a1a2e;
+  max-width:800px;
+}
+.s-sub{
+  font-size:clamp(1rem,1.6vw,1.4rem);
+  color:#6b7280;
+  line-height:1.6;
+  max-width:620px;
+  margin-bottom:28px;
+}
+.s-body{
+  font-size:clamp(1rem,1.4vw,1.25rem);
+  color:#4b5563;
+  line-height:1.7;
+  max-width:640px;
+}
+.s-body strong{color:#1a1a2e}
+.ev{margin-top:20px;font-size:.92rem;color:#6b7280}
+
+.gold{color:#d97706}
+.accent{
+  width:60px;height:4px;
+  background:#d97706;
+  border-radius:2px;
+  margin-bottom:24px;
+}
+.badge{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:#d97706;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+/* ─── Hero ─── */
+.hero-icon{
+  font-size:clamp(3rem,6vw,5rem);
+  margin-bottom:20px;
+  display:block;
+}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  padding:7px 16px;
+  border-radius:100px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  font-size:.8rem;
+  color:#6b7280;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+
+/* ─── Statement ─── */
+.statement{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:clamp(20px,3vw,40px);
+  max-width:700px;
+  box-shadow:0 4px 24px rgba(0,0,0,.04);
+  margin-bottom:20px;
+}
+.statement p{
+  font-size:clamp(1.05rem,1.4vw,1.25rem);
+  color:#4b5563;
+  line-height:1.7;
+}
+
+/* ─── Cards ─── */
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+  max-width:700px;
+}
+.card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:18px 16px;
+  transition:transform .2s;
+}
+.card:hover{transform:translateY(-2px)}
+.ci{font-size:1.5rem;margin-bottom:6px;display:block}
+.ct{font-weight:600;font-size:.88rem;color:#1a1a2e}
+.cd{font-size:.78rem;color:#6b7280;margin-top:2px}
+
+/* ─── VS ─── */
+.vs-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:16px;
+  align-items:center;
+  max-width:850px;
+}
+@media(max-width:640px){
+  .vs-grid{grid-template-columns:1fr}
+  .vs-circle{order:2}
+  .vs-card.green{order:3}
+}
+.vs-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:20px;
+}
+.vs-card.red{border-left:4px solid #ef4444}
+.vs-card.green{border-left:4px solid #10b981}
+.vsl{
+  font-size:.65rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:600;
+  margin-bottom:6px;
+}
+.vsl.red{color:#ef4444}
+.vsl.green{color:#10b981}
+.vs-card h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.vs-card p{font-size:.82rem;color:#6b7280;line-height:1.6}
+.vs-circle{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:#d97706;
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.8rem;
+  flex-shrink:0;margin:auto;
+}
+
+/* ─── Summary ─── */
+.scard{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:14px 12px;
+  text-align:center;
+}
+.sci{font-size:1.5rem;display:block;margin-bottom:4px}
+.scl{font-weight:600;font-size:.8rem;color:#1a1a2e}
+
+/* ─── CTA ─── */
+.cta-box{
+  background:#1a1a2e;
+  border-radius:14px;
+  padding:clamp(20px,3vw,40px);
+  max-width:650px;
+  text-align:center;
+  margin-top:20px;
+}
+.quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,1.8vw,1.5rem);
+  line-height:1.4;
+  margin-bottom:16px;
+  color:#fbbf24;
+}
+.cta-box p{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:20px}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#d97706;color:#fff;
+  border:none;padding:10px 24px;border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-weight:600;font-size:.86rem;
+  cursor:pointer;transition:opacity .2s;
+}
+.btn:hover{opacity:.85}
+
+/* ─── Decorations ─── */
+.deco{
+  position:absolute;right:-60px;top:-60px;
+  width:250px;height:250px;
+  border-radius:50%;
+  background:rgba(217,119,6,.04);
+  pointer-events:none;
+}
+.deco:nth-child(2){
+  left:-100px;bottom:-100px;
+  width:350px;height:350px;
+  background:rgba(217,119,6,.03);
+}
+
+/* ─── Bottom bar ─── */
+#bar{
+  position:fixed;bottom:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 10vw;
+  background:linear-gradient(0deg,rgba(250,249,247,.95) 60%,transparent);
+  z-index:100;
+}
+#dots{display:flex;gap:6px}
+.dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#d1d5db;
+  border:none;cursor:pointer;
+  padding:0;transition:all .25s;
+}
+.dot.on{background:#d97706;width:22px;border-radius:4px}
+#counter{font-size:.76rem;color:#9ca3af;font-variant-numeric:tabular-nums}
+#arrows{display:flex;gap:6px}
+.arr{
+  background:#fff;border:1px solid #e5e7eb;
+  color:#6b7280;width:34px;height:34px;
+  border-radius:50%;cursor:pointer;
+  font-size:.95rem;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.arr:hover{background:#f3f0eb;border-color:#d97706;color:#d97706}
+
+/* ─── Progress ─── */
+#progress{
+  position:fixed;top:0;left:0;height:3px;
+  background:#d97706;z-index:200;
+  transition:width .35s;
+}
+
+/* ─── Top buttons ─── */
+#notesToggle,#timerToggle{
+  position:fixed;z-index:300;
+  background:#fff;border:1px solid #e5e7eb;
+  border-radius:8px;padding:5px 10px;
+  font-family:'DM Sans',sans-serif;font-size:.74rem;
+  color:#6b7280;cursor:pointer;transition:all .2s;
+}
+#notesToggle:hover,#timerToggle:hover{border-color:#d97706;color:#d97706}
+#notesToggle{top:14px;right:14px}
+#timerToggle{top:14px;left:14px}
+#notesToggle.on{background:#d97706;color:#fff;border-color:#d97706}
+
+/* ─── Notes ─── */
+.note{
+  position:fixed;bottom:72px;left:50%;transform:translateX(-50%);
+  background:#fff;border:1px solid #e5e7eb;
+  border-radius:10px;padding:14px 20px;
+  max-width:560px;width:90%;
+  font-size:.8rem;color:#6b7280;line-height:1.6;
+  box-shadow:0 8px 28px rgba(0,0,0,.08);
+  z-index:200;
+  opacity:0;transform:translateX(-50%) translateY(16px);
+  pointer-events:none;
+  transition:all .3s;
+}
+.note.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.note .nl{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:#d97706;margin-bottom:4px}
+
+/* ─── Timer ─── */
+#timerOverlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(250,249,247,.98);
+  flex-direction:column;align-items:center;justify-content:center;
+}
+#timerOverlay.show{display:flex}
+.td{
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(4rem,10vw,8rem);
+  font-weight:700;color:#1a1a2e;
+  margin-bottom:6px;line-height:1;
+}
+.tl{color:#6b7280;font-size:.85rem;margin-bottom:28px}
+.tc{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.tb{
+  padding:8px 20px;border-radius:100px;
+  border:1px solid #e5e7eb;
+  font-family:'DM Sans',sans-serif;font-weight:500;
+  font-size:.82rem;cursor:pointer;
+  background:#fff;color:#6b7280;
+  transition:all .2s;
+}
+.tb:hover{border-color:#d97706;color:#d97706}
+.tb.primary{background:#d97706;color:#fff;border-color:#d97706}
+.tb.primary:hover{opacity:.85}
+.tb.danger{color:#ef4444;border-color:#fca5a5}
+.tb.danger:hover{background:#fef2f2;border-color:#ef4444}
+.th{color:#9ca3af;font-size:.76rem;margin-top:16px}
+.th span{margin:0 5px}
+
+/* ─── Mobile ─── */
+@media(max-width:640px){
+  .slide{padding:60px 24px}
+  #bar{padding:10px 24px}
+  .arr{width:30px;height:30px;font-size:.85rem}
+  #notesToggle,#timerToggle{font-size:.7rem;padding:4px 8px}
+}
