@@ -49,24 +49,25 @@ function pauseTim() { clearInterval(ti); ti = null; }
 function resetTim() { pauseTim(); sec = 0; updateTim(); }
 
 // Slow auto-scroll
-let scrollRaf = null;
+let scrollTim = null;
 
 function toggleSlowScroll() {
   const btn = document.getElementById('scroll-btn');
-  if (scrollRaf) {
-    cancelAnimationFrame(scrollRaf);
-    scrollRaf = null;
-    btn.style.color = '';
-    btn.textContent = '🐢';
+  if (scrollTim) {
+    clearInterval(scrollTim);
+    scrollTim = null;
+    btn.classList.remove('active');
     return;
   }
-  btn.style.color = '#22D3EE';
-  btn.textContent = '🐢';
-  const step = () => {
+  btn.classList.add('active');
+  scrollTim = setInterval(() => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (window.scrollY >= max) { scrollRaf = null; btn.style.color = ''; return; }
-    window.scrollBy(0, 0.3);
-    scrollRaf = requestAnimationFrame(step);
-  };
-  scrollRaf = requestAnimationFrame(step);
+    if (window.scrollY >= max) {
+      clearInterval(scrollTim);
+      scrollTim = null;
+      btn.classList.remove('active');
+      return;
+    }
+    window.scrollBy(0, 1);
+  }, 30);
 }
