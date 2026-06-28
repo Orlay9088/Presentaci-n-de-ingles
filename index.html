@@ -11,8 +11,6 @@
 
 <div id="progress"></div>
 
-<canvas id="confetti-canvas"></canvas>
-
 <!-- Floating timer -->
 <div id="timer-box">
   <button id="timer-btn" onclick="toggleTimer()">⏱</button>
@@ -24,24 +22,19 @@
   </div>
 </div>
 
+<!-- Slow scroll button -->
 <button id="scroll-btn" onclick="toggleSlowScroll()" title="Auto-scroll lento">🐢</button>
-<button id="pres-btn" onclick="togglePresMode()" title="Modo presentación">🎬</button>
 
 <nav>
   <span class="nav-logo">🤖 AI in Education</span>
   <ul class="nav-links">
-    <li><a href="#overview" data-section="overview">Overview</a></li>
-    <li><a href="#intro" data-section="intro">Intro</a></li>
-    <li><a href="#args" data-section="args">Arguments</a></li>
-    <li><a href="#counter" data-section="counter">Counter</a></li>
-    <li><a href="#conclusion" data-section="conclusion">Conclusion</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#args">Arguments</a></li>
+    <li><a href="#counter">Counter</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
-
-<div id="pres-indicator">
-  <span id="pres-pos"></span>
-  <div id="pres-bar"></div>
-</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -225,19 +218,6 @@
         <p class="c-body">Like the internet, AI can be used well or badly. <strong>Teach ethics, don't ban.</strong></p>
       </div>
     </div>
-    <div class="vote-box reveal">
-      <p class="vote-question">What do you think?</p>
-      <div class="vote-btns">
-        <button class="vote-btn" onclick="vote('agree')">
-          <span>👍</span> Agree
-          <span class="vote-pct" id="pct-agree">0%</span>
-        </button>
-        <button class="vote-btn" onclick="vote('disagree')">
-          <span>👎</span> Disagree
-          <span class="vote-pct" id="pct-disagree">0%</span>
-        </button>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -275,7 +255,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer id="celebrate">
+<footer>
   <span class="footer-icon">🤖</span>
   <div class="footer-title">Students Should Use AI Responsibly</div>
   <div class="footer-meta">
