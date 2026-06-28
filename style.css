@@ -20,12 +20,12 @@ body{background:var(--navy);color:var(--white);font-family:'Inter',sans-serif;ov
 #timer-actions button:hover{color:var(--cyan);background:var(--glass)}
 
 /* Nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:998;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;background:rgba(15,23,42,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,var(--purple-light),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-links{display:flex;gap:28px;list-style:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:998;display:flex;align-items:center;gap:32px;padding:14px 40px;background:rgba(15,23,42,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,var(--purple-light),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0}
+.nav-links{display:flex;gap:28px;list-style:none;margin-left:0}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--cyan)}
-@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}}
+@media(max-width:768px){nav{padding:14px 20px;gap:0}.nav-links{display:none}}
 
 /* Hero */
 #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 20px 60px}
