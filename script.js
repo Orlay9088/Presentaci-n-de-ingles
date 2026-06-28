@@ -22,17 +22,19 @@ function toggleArg(el) {
 }
 
 // Voting
-let voted = false;
 const votes = { agree: 0, disagree: 0 };
 
 function vote(choice) {
-  if (voted) return;
-  voted = true;
-  document.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
-  document.getElementById('pct-' + choice).parentElement.classList.add('selected');
   votes[choice]++;
   document.getElementById('pct-agree').textContent = votes.agree;
   document.getElementById('pct-disagree').textContent = votes.disagree;
+}
+
+function resetVotes() {
+  votes.agree = 0;
+  votes.disagree = 0;
+  document.getElementById('pct-agree').textContent = '0';
+  document.getElementById('pct-disagree').textContent = '0';
 }
 
 // Floating timer

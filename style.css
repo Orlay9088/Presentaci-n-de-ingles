@@ -129,6 +129,8 @@ section{padding:90px 20px}
 .vote-btn:hover{background:rgba(255,255,255,0.12);border-color:var(--cyan);transform:translateY(-2px)}
 .vote-btn.selected{background:rgba(34,211,238,0.12);border-color:var(--cyan);box-shadow:0 0 20px rgba(34,211,238,0.2)}
 .vote-pct{font-size:.7rem;font-weight:600;color:var(--cyan);min-width:28px;text-align:right}
+.vote-reset{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:var(--muted);font-size:.78rem}
+.vote-reset:hover{background:rgba(239,68,68,0.15);border-color:#F87171;color:#F87171}
 
 /* Conclusion */
 #conclusion{background:rgba(30,41,59,0.3)}
