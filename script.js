@@ -31,9 +31,8 @@ function vote(choice) {
   document.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
   document.getElementById('pct-' + choice).parentElement.classList.add('selected');
   votes[choice]++;
-  const total = votes.agree + votes.disagree;
-  document.getElementById('pct-agree').textContent = Math.round((votes.agree / total) * 100) + '%';
-  document.getElementById('pct-disagree').textContent = Math.round((votes.disagree / total) * 100) + '%';
+  document.getElementById('pct-agree').textContent = votes.agree;
+  document.getElementById('pct-disagree').textContent = votes.disagree;
 }
 
 // Floating timer
