@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Vote — AI in Education</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(135deg,#0F172A,#1E293B);color:#FFF;font-family:'Poppins',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vote-page{text-align:center;padding:30px;max-width:400px;width:100%}
+.icon{font-size:4rem;margin-bottom:12px;display:block}
+h1{font-size:1.3rem;font-weight:700;margin-bottom:4px;background:linear-gradient(135deg,#8B5CF6,#22D3EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:.8rem;color:rgba(255,255,255,0.5);margin-bottom:30px}
+.vote-q{font-size:1rem;font-weight:600;margin-bottom:20px;color:rgba(255,255,255,0.85)}
+.vote-btns{display:flex;flex-direction:column;gap:14px}
+.vote-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;border-radius:16px;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#FFF;font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s;backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
+.vote-btn:active{transform:scale(.96)}
+.vote-btn.agree:active,.vote-btn.agree.selected{border-color:#22D3EE;background:rgba(34,211,238,0.1)}
+.vote-btn.disagree:active,.vote-btn.disagree.selected{border-color:#F87171;background:rgba(248,113,113,0.1)}
+.vote-btn .emoji{font-size:1.6rem}
+.msg{margin-top:24px;font-size:.85rem;opacity:0;transition:opacity .4s;color:#22D3EE}
+.msg.show{opacity:1}
+footer{position:fixed;bottom:16px;left:0;right:0;text-align:center;font-size:.7rem;color:rgba(255,255,255,0.25)}
+</style>
+</head>
+<body>
+<div class="vote-page">
+  <span class="icon">🗳️</span>
+  <h1>AI in Education</h1>
+  <p class="sub">Responsible Use</p>
+  <p class="vote-q">Students should use AI responsibly. What do you think?</p>
+  <div class="vote-btns">
+    <button class="vote-btn agree" onclick="sendVote('agree')">
+      <span class="emoji">👍</span> Agree
+    </button>
+    <button class="vote-btn disagree" onclick="sendVote('disagree')">
+      <span class="emoji">👎</span> Disagree
+    </button>
+  </div>
+  <p class="msg" id="vote-msg">✓ Vote received!</p>
+</div>
+<footer>Presentación de inglés</footer>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+let voted = false;
+
+function sendVote(choice) {
+  if (voted) return;
+  voted = true;
+  document.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelector('.' + choice).classList.add('selected');
+
+  votesRef.transaction(current => {
+    if (!current) current = { agree: 0, disagree: 0 };
+    current[choice] = (current[choice] || 0) + 1;
+    return current;
+  });
+
+  const msg = document.getElementById('vote-msg');
+  msg.textContent = choice === 'agree' ? '✓ You agree! Thanks.' : '✓ You disagree! Thanks.';
+  msg.classList.add('show');
+}
+</script>
+</body>
+</html>

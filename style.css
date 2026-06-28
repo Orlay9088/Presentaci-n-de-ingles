@@ -144,6 +144,16 @@ section{padding:90px 20px}
 .hist-fill-disagree{background:linear-gradient(0deg,#F87171,#F59E0B)}
 .hist-label{font-size:.8rem;font-weight:500;color:var(--muted);margin-top:6px}
 
+/* QR box */
+.qr-box{margin-top:20px;text-align:center}
+.qr-toggle{background:none;border:1px solid var(--border);border-radius:12px;padding:10px 20px;color:var(--muted);font-size:.82rem;font-family:inherit;cursor:pointer;transition:all .2s}
+.qr-toggle:hover{color:var(--cyan);border-color:var(--cyan)}
+.qr-content{display:none;margin-top:16px;flex-direction:column;align-items:center;gap:8px}
+.qr-content.open{display:flex}
+.qr-img{width:180px;height:180px;border-radius:12px;background:white;padding:8px}
+.qr-url{font-size:.72rem;color:var(--muted);word-break:break-all;max-width:260px}
+.qr-hint{font-size:.7rem;color:var(--muted);opacity:.6}
+
 /* Conclusion */
 #conclusion{background:rgba(30,41,59,0.3)}
 .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:40px;margin-bottom:40px}

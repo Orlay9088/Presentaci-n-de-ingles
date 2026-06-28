@@ -21,8 +21,8 @@ function toggleArg(el) {
   el.classList.toggle('expanded');
 }
 
-// Voting
-const votes = { agree: 0, disagree: 0 };
+// Voting — Firebase real-time
+let votes = { agree: 0, disagree: 0 };
 
 function updateChart() {
   const total = votes.agree + votes.disagree;
@@ -37,21 +37,47 @@ function updateChart() {
   document.getElementById('h-val-disagree').textContent = votes.disagree;
   document.getElementById('h-pct-agree').textContent = aPct + '%';
   document.getElementById('h-pct-disagree').textContent = dPct + '%';
+  document.getElementById('pct-agree').textContent = votes.agree;
+  document.getElementById('pct-disagree').textContent = votes.disagree;
+}
+
+// Escuchar cambios en Firebase
+if (typeof votesRef !== 'undefined') {
+  votesRef.on('value', snap => {
+    const data = snap.val();
+    if (data) {
+      votes.agree = data.agree || 0;
+      votes.disagree = data.disagree || 0;
+    }
+    updateChart();
+  });
 }
 
 function vote(choice) {
-  votes[choice]++;
-  document.getElementById('pct-agree').textContent = votes.agree;
-  document.getElementById('pct-disagree').textContent = votes.disagree;
-  updateChart();
+  if (typeof votesRef !== 'undefined') {
+    votesRef.transaction(current => {
+      if (!current) current = { agree: 0, disagree: 0 };
+      current[choice] = (current[choice] || 0) + 1;
+      return current;
+    });
+  }
 }
 
 function resetVotes() {
-  votes.agree = 0;
-  votes.disagree = 0;
-  document.getElementById('pct-agree').textContent = '0';
-  document.getElementById('pct-disagree').textContent = '0';
-  updateChart();
+  if (typeof votesRef !== 'undefined') {
+    votesRef.set({ agree: 0, disagree: 0 });
+  }
+}
+
+// QR toggle
+function toggleQR() {
+  const content = document.getElementById('qr-content');
+  const isOpen = content.classList.toggle('open');
+  if (isOpen) {
+    const url = window.location.origin + window.location.pathname.replace(/\/?$/, '') + '/votar.html';
+    document.getElementById('qr-url').textContent = url;
+    document.getElementById('qr-img').src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
+  }
 }
 
 // Floating timer
