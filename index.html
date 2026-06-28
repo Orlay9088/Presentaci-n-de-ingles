@@ -11,6 +11,8 @@
 
 <div id="progress"></div>
 
+<canvas id="confetti-canvas"></canvas>
+
 <!-- Floating timer -->
 <div id="timer-box">
   <button id="timer-btn" onclick="toggleTimer()">⏱</button>
@@ -22,19 +24,24 @@
   </div>
 </div>
 
-<!-- Slow scroll button -->
 <button id="scroll-btn" onclick="toggleSlowScroll()" title="Auto-scroll lento">🐢</button>
+<button id="pres-btn" onclick="togglePresMode()" title="Modo presentación">🎬</button>
 
 <nav>
   <span class="nav-logo">🤖 AI in Education</span>
   <ul class="nav-links">
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#args">Arguments</a></li>
-    <li><a href="#counter">Counter</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#overview" data-section="overview">Overview</a></li>
+    <li><a href="#intro" data-section="intro">Intro</a></li>
+    <li><a href="#args" data-section="args">Arguments</a></li>
+    <li><a href="#counter" data-section="counter">Counter</a></li>
+    <li><a href="#conclusion" data-section="conclusion">Conclusion</a></li>
   </ul>
 </nav>
+
+<div id="pres-indicator">
+  <span id="pres-pos"></span>
+  <div id="pres-bar"></div>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -155,7 +162,7 @@
       <h2 class="section-title">Three reasons why</h2>
     </div>
     <div class="args-grid">
-      <div class="arg-card reveal">
+      <div class="arg-card reveal" onclick="toggleArg(this)">
         <div class="arg-top">
           <span class="arg-icon">📚</span>
           <div class="arg-num">Argument 1</div>
@@ -163,13 +170,12 @@
           <p class="arg-body">AI explains hard topics simply. Ask questions without fear. It adapts to your pace.</p>
         </div>
         <div class="arg-evidence">
-          <button class="ev-toggle" onclick="toggleEv(this)">📊 Evidence ▾</button>
           <div class="ev-content">
             <p class="ev-text">Many platforms already personalize learning with AI. No one gets left behind.</p>
           </div>
         </div>
       </div>
-      <div class="arg-card reveal">
+      <div class="arg-card reveal" onclick="toggleArg(this)">
         <div class="arg-top">
           <span class="arg-icon">💼</span>
           <div class="arg-num">Argument 2</div>
@@ -177,13 +183,12 @@
           <p class="arg-body">Every industry uses AI. Learning it now = better jobs later.</p>
         </div>
         <div class="arg-evidence">
-          <button class="ev-toggle" onclick="toggleEv(this)">📊 Evidence ▾</button>
           <div class="ev-content">
             <p class="ev-text">Engineering, medicine, business — all need AI skills. More skills = more opportunities.</p>
           </div>
         </div>
       </div>
-      <div class="arg-card reveal">
+      <div class="arg-card reveal" onclick="toggleArg(this)">
         <div class="arg-top">
           <span class="arg-icon">💡</span>
           <div class="arg-num">Argument 3</div>
@@ -191,7 +196,6 @@
           <p class="arg-body">AI amplifies ideas. Brainstorm, organize, write better. You still decide everything.</p>
         </div>
         <div class="arg-evidence">
-          <button class="ev-toggle" onclick="toggleEv(this)">📊 Evidence ▾</button>
           <div class="ev-content">
             <p class="ev-text">Teachers support AI for brainstorming. It's a thinking partner, not a shortcut.</p>
           </div>
@@ -219,6 +223,19 @@
         <span class="c-badge green">✓ I say</span>
         <div class="c-head">It's about how we use it</div>
         <p class="c-body">Like the internet, AI can be used well or badly. <strong>Teach ethics, don't ban.</strong></p>
+      </div>
+    </div>
+    <div class="vote-box reveal">
+      <p class="vote-question">What do you think?</p>
+      <div class="vote-btns">
+        <button class="vote-btn" onclick="vote('agree')">
+          <span>👍</span> Agree
+          <span class="vote-pct" id="pct-agree">0%</span>
+        </button>
+        <button class="vote-btn" onclick="vote('disagree')">
+          <span>👎</span> Disagree
+          <span class="vote-pct" id="pct-disagree">0%</span>
+        </button>
       </div>
     </div>
   </div>
@@ -258,7 +275,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer id="celebrate">
   <span class="footer-icon">🤖</span>
   <div class="footer-title">Students Should Use AI Responsibly</div>
   <div class="footer-meta">
