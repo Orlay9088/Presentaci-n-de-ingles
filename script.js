@@ -26,12 +26,17 @@ const votes = { agree: 0, disagree: 0 };
 
 function updateChart() {
   const total = votes.agree + votes.disagree;
-  const aPct = total ? (votes.agree / total) * 100 : 0;
-  const dPct = total ? (votes.disagree / total) * 100 : 0;
-  document.getElementById('bar-agree').style.width = aPct + '%';
-  document.getElementById('bar-disagree').style.width = dPct + '%';
-  document.getElementById('val-agree').textContent = votes.agree;
-  document.getElementById('val-disagree').textContent = votes.disagree;
+  const max = Math.max(votes.agree, votes.disagree, 1);
+  const aPct = total ? Math.round((votes.agree / total) * 100) : 0;
+  const dPct = total ? Math.round((votes.disagree / total) * 100) : 0;
+  const aH = (votes.agree / max) * 100;
+  const dH = (votes.disagree / max) * 100;
+  document.getElementById('bar-agree').style.height = aH + '%';
+  document.getElementById('bar-disagree').style.height = dH + '%';
+  document.getElementById('h-val-agree').textContent = votes.agree;
+  document.getElementById('h-val-disagree').textContent = votes.disagree;
+  document.getElementById('h-pct-agree').textContent = aPct + '%';
+  document.getElementById('h-pct-disagree').textContent = dPct + '%';
 }
 
 function vote(choice) {

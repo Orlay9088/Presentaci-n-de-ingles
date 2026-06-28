@@ -232,19 +232,23 @@
         <button class="vote-btn vote-reset" onclick="resetVotes()">↺ Reset</button>
       </div>
       <div class="vote-chart">
-        <div class="chart-bar-wrap">
-          <div class="chart-label">👍 Agree</div>
-          <div class="chart-track">
-            <div class="chart-fill chart-fill-agree" id="bar-agree"></div>
+        <div class="hist-wrap">
+          <div class="hist-bar-col">
+            <div class="hist-val" id="h-val-agree">0</div>
+            <div class="hist-pct" id="h-pct-agree">0%</div>
+            <div class="hist-track">
+              <div class="hist-fill hist-fill-agree" id="bar-agree"></div>
+            </div>
+            <div class="hist-label">👍 Agree</div>
           </div>
-          <div class="chart-val" id="val-agree">0</div>
-        </div>
-        <div class="chart-bar-wrap">
-          <div class="chart-label">👎 Disagree</div>
-          <div class="chart-track">
-            <div class="chart-fill chart-fill-disagree" id="bar-disagree"></div>
+          <div class="hist-bar-col">
+            <div class="hist-val" id="h-val-disagree">0</div>
+            <div class="hist-pct" id="h-pct-disagree">0%</div>
+            <div class="hist-track">
+              <div class="hist-fill hist-fill-disagree" id="bar-disagree"></div>
+            </div>
+            <div class="hist-label">👎 Disagree</div>
           </div>
-          <div class="chart-val" id="val-disagree">0</div>
         </div>
       </div>
     </div>
