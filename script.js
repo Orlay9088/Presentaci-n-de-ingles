@@ -24,10 +24,21 @@ function toggleArg(el) {
 // Voting
 const votes = { agree: 0, disagree: 0 };
 
+function updateChart() {
+  const total = votes.agree + votes.disagree;
+  const aPct = total ? (votes.agree / total) * 100 : 0;
+  const dPct = total ? (votes.disagree / total) * 100 : 0;
+  document.getElementById('bar-agree').style.width = aPct + '%';
+  document.getElementById('bar-disagree').style.width = dPct + '%';
+  document.getElementById('val-agree').textContent = votes.agree;
+  document.getElementById('val-disagree').textContent = votes.disagree;
+}
+
 function vote(choice) {
   votes[choice]++;
   document.getElementById('pct-agree').textContent = votes.agree;
   document.getElementById('pct-disagree').textContent = votes.disagree;
+  updateChart();
 }
 
 function resetVotes() {
@@ -35,6 +46,7 @@ function resetVotes() {
   votes.disagree = 0;
   document.getElementById('pct-agree').textContent = '0';
   document.getElementById('pct-disagree').textContent = '0';
+  updateChart();
 }
 
 // Floating timer
