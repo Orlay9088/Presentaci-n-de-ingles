@@ -1,88 +1,64 @@
-// ─── State ───
-let idx = 0;
-const slides = document.querySelectorAll('.slide');
-const total = slides.length;
-const wrap = document.getElementById('slides');
-let notesOn = false;
-let ti = null, sec = 0;
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const el = document.documentElement;
+    const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
 
-// ─── Navigation ───
-function go(i) {
-  if (i < 0 || i >= total) return;
-  idx = i;
-  wrap.style.transform = `translateX(-${idx * 100}vw)`;
-  document.getElementById('counter').textContent = `${idx+1} / ${total}`;
-  document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('on', j === idx));
-  document.getElementById('prevBtn').style.opacity = idx === 0 ? '.3' : '1';
-  document.getElementById('nextBtn').style.opacity = idx === total - 1 ? '.3' : '1';
-  document.getElementById('progress').style.width = `${((idx+1)/total)*100}%`;
-  // Notes
-  const n = document.querySelector('.note');
-  if (notesOn && slides[idx].dataset.notes) {
-    n.querySelector('.nt').textContent = slides[idx].dataset.notes;
-    n.classList.add('show');
-  } else {
-    n.classList.remove('show');
+    // Back to top
+    const btn = document.getElementById('back-top');
+    if (el.scrollTop > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Evidence toggle
+  function toggleEvidence(btn) {
+    const content = btn.parentElement.querySelector('.evidence-content');
+    const arrow = btn.querySelector('.arrow');
+    content.classList.toggle('open');
+    arrow.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
   }
-}
 
-function next() { go(idx + 1); }
-function prev() { go(idx - 1); }
-
-// ─── Dots ───
-const dotWrap = document.getElementById('dots');
-for (let i = 0; i < total; i++) {
-  const d = document.createElement('button');
-  d.className = 'dot' + (i === 0 ? ' on' : '');
-  d.onclick = () => go(i);
-  dotWrap.appendChild(d);
-}
-
-// ─── Notes ───
-function toggleNotes() {
-  notesOn = !notesOn;
-  document.getElementById('notesToggle').classList.toggle('on', notesOn);
-  go(idx);
-}
-
-// ─── Timer ───
-function openTimer() { document.getElementById('timerOverlay').classList.add('show'); }
-function closeTimer() { document.getElementById('timerOverlay').classList.remove('show'); pause(); }
-function tick() {
-  const m = String(Math.floor(sec / 60)).padStart(2, '0');
-  const s = String(sec % 60).padStart(2, '0');
-  const el = document.getElementById('td');
-  el.textContent = m + ':' + s;
-  el.style.color = sec >= 300 ? '#ef4444' : sec >= 180 ? '#d97706' : '#1a1a2e';
-}
-function start() { if (ti) return; ti = setInterval(() => { sec++; tick(); }, 1000); }
-function pause() { clearInterval(ti); ti = null; }
-function reset() { pause(); sec = 0; tick(); }
-
-// ─── Keyboard ───
-document.addEventListener('keydown', e => {
-  if (document.getElementById('timerOverlay').classList.contains('show')) {
-    if (e.key === 'Escape') closeTimer();
-    return;
+  // Copy speech
+  function copySpeech() {
+    const el = document.getElementById('speech-content');
+    const text = el.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Speech', 2200);
+    });
   }
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
-  if (e.key === 'Escape') { notesOn = false; document.getElementById('notesToggle').classList.remove('on'); go(idx); }
-});
 
-// ─── Touch ───
-let tx = 0;
-document.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
-document.addEventListener('touchend', e => {
-  const diff = tx - e.changedTouches[0].screenX;
-  if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
-}, { passive: true });
-
-// ─── Note element ───
-const nb = document.createElement('div');
-nb.className = 'note';
-nb.innerHTML = '<div class="nl">Presenter notes</div><div class="nt"></div>';
-document.body.appendChild(nb);
-
-// ─── Init ───
-go(0);
+  // Practice timer
+  let timerInterval = null, seconds = 0;
+  function openPractice() { document.getElementById('practice-overlay').classList.add('active'); }
+  function closePractice() {
+    document.getElementById('practice-overlay').classList.remove('active');
+    stopTimer();
+  }
+  function updateDisplay() {
+    const m = String(Math.floor(seconds / 60)).padStart(2,'0');
+    const s = String(seconds % 60).padStart(2,'0');
+    const el = document.getElementById('practice-time');
+    el.textContent = `${m}:${s}`;
+    if (seconds >= 300) el.style.color = '#F87171';
+    else if (seconds >= 180) el.style.background = 'linear-gradient(135deg, #FBBF24, #22D3EE)';
+    else el.style.background = 'linear-gradient(135deg, #8B5CF6, #22D3EE)';
+  }
+  function startTimer() {
+    if (timerInterval) return;
+    timerInterval = setInterval(() => { seconds++; updateDisplay(); }, 1000);
+  }
+  function stopTimer() { clearInterval(timerInterval); timerInterval = null; }
+  function resetTimer() { stopTimer(); seconds = 0; updateDisplay(); }

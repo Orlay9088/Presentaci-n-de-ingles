@@ -1,171 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI in Education — Presentation</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Education — Student Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="progress"></div>
+<div id="progress-bar"></div>
 
-<button id="notesToggle" onclick="toggleNotes()" aria-label="Show presenter notes">📝 Notes</button>
-<button id="timerToggle" onclick="openTimer()" aria-label="Open timer">⏱ Timer</button>
+<nav>
+  <span class="nav-logo">🤖 AI in Education</span>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#body-args">Arguments</a></li>
+    <li><a href="#counter">Counter</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#speech">Full Speech</a></li>
+  </ul>
+  <div class="nav-timer">
+    <span>Practice:</span>
+    <button class="timer-badge" onclick="openPractice()">⏱ Start Timer</button>
+  </div>
+</nav>
 
-<div id="slides">
-
-  <div class="slide" data-notes="Start strong. Make eye contact. 'Imagine finishing homework faster AND understanding more. That's what AI can do. Today I'll convince you why students should use it — responsibly.'">
-    <div class="deco"></div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
     <span class="hero-icon">🤖</span>
-    <h1 class="s-title">
-      Students Should Learn<br />
-      to Use <span class="gold">Artificial Intelligence</span><br />
+    <div class="hero-eyebrow">Student Persuasive Speech</div>
+    <h1 class="hero-title">
+      Students Should Learn to Use<br>
+      <span>Artificial Intelligence</span><br>
       Responsibly
     </h1>
-    <p class="s-sub">A persuasive speech — 3 clear arguments to convince you why AI belongs in education.</p>
-    <div class="chips">
-      <span class="chip">🎓 <strong>University</strong></span>
-      <span class="chip">⏱ <strong>3–5 min</strong></span>
-      <span class="chip">📚 <strong>3</strong> arguments</span>
+    <p class="hero-sub">A compelling argument for embracing AI as a tool for learning — not fearing it as a threat.</p>
+    <a href="#overview" class="btn-primary">🚀 Start Presentation</a>
+    <div class="hero-chips">
+      <div class="chip">📚 3 Core Arguments</div>
+      <div class="chip">🎓 University Level</div>
+      <div class="chip">⏱ 3–5 min Speech</div>
+      <div class="chip">💡 Persuasive</div>
     </div>
   </div>
+</section>
 
-  <div class="slide" data-notes="'AI isn't going anywhere. The real question is: how do we use it? I'll give you 3 reasons why learning to use AI is better than banning it.'">
-    <div class="accent"></div>
-    <h2 class="s-title">The real question</h2>
-    <div class="statement">
-      <p>AI is changing <strong>how we study, work, and communicate</strong>. It's already here. The question isn't <em>if</em> we should use it — it's <strong>how</strong>.</p>
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">About This Presentation</div>
+      <h2 class="section-title">What are we talking about?</h2>
+      <p class="section-desc">An evidence-based persuasive speech arguing that students should embrace and responsibly use AI, rather than avoid it or fear it.</p>
     </div>
-    <p class="s-sub" style="margin-bottom:0">My answer: <strong>use it, the right way</strong>.</p>
-  </div>
-
-  <div class="slide" data-notes="'Here's my roadmap. 3 arguments: Learning, Careers, Creativity. Plus I'll address the biggest concern. Let's start.'">
-    <div class="accent"></div>
-    <h2 class="s-title">Three arguments, one goal</h2>
-    <div class="grid-4">
-      <div class="card">
-        <span class="ci">📚</span>
-        <div class="ct">Learn faster</div>
-        <div class="cd">AI adapts to your pace</div>
+    <div class="overview-grid">
+      <div class="overview-card reveal">
+        <span class="overview-icon">📋</span>
+        <div class="overview-label">Topic</div>
+        <div class="overview-value">AI in Student Education</div>
       </div>
-      <div class="card">
-        <span class="ci">💼</span>
-        <div class="ct">Future jobs</div>
-        <div class="cd">AI skills = better career</div>
+      <div class="overview-card reveal">
+        <span class="overview-icon">🎯</span>
+        <div class="overview-label">Objective</div>
+        <div class="overview-value">Convince to use AI responsibly</div>
       </div>
-      <div class="card">
-        <span class="ci">💡</span>
-        <div class="ct">Creative boost</div>
-        <div class="cd">AI amplifies your ideas</div>
+      <div class="overview-card reveal">
+        <span class="overview-icon">⏱</span>
+        <div class="overview-label">Estimated Time</div>
+        <div class="overview-value">3 – 5 minutes</div>
       </div>
-      <div class="card">
-        <span class="ci">⚖️</span>
-        <div class="ct">Teach, don't ban</div>
-        <div class="cd">Ethics over prohibition</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-notes="'First: AI helps you learn faster. Think about it — when you don't understand something, AI explains it differently until it clicks. You can't do that with a textbook.'">
-    <div class="accent"></div>
-    <div class="badge">Argument 1</div>
-    <h2 class="s-title">AI helps you learn faster</h2>
-    <div class="s-body">
-      <p>AI explains <strong>hard topics in simple words</strong>. Ask questions again and again — no embarrassment. It adapts to <strong>your pace</strong>.</p>
-      <p class="ev"><strong>📊 Evidence:</strong> Education platforms already use AI to personalize lessons. Each student learns at their own speed.</p>
-    </div>
-  </div>
-
-  <div class="slide" data-notes="'Second: AI prepares you for real jobs. Every industry — engineering, medicine, business — already uses AI. Students with AI skills get hired first.'">
-    <div class="accent"></div>
-    <div class="badge">Argument 2</div>
-    <h2 class="s-title">AI prepares you for real jobs</h2>
-    <div class="s-body">
-      <p>AI is <strong>essential in every profession</strong>. Engineering, medicine, business, marketing — all use AI. Learning it <strong>today</strong> gives you an advantage <strong>tomorrow</strong>.</p>
-      <p class="ev"><strong>📊 Evidence:</strong> Companies actively hire people with AI skills. More opportunities, better careers.</p>
-    </div>
-  </div>
-
-  <div class="slide" data-notes="'Third: AI makes you more creative. When AI handles the boring parts, you have more energy for the thinking that only humans can do.'">
-    <div class="accent"></div>
-    <div class="badge">Argument 3</div>
-    <h2 class="s-title">AI boosts your creativity</h2>
-    <div class="s-body">
-      <p>AI doesn't replace creativity — it <strong>amplifies it</strong>. Brainstorm ideas, organize projects, write better. <strong>You</strong> make every final decision.</p>
-      <p class="ev"><strong>📊 Evidence:</strong> Teachers now encourage AI for brainstorming. It's a thinking partner, not a shortcut.</p>
-    </div>
-  </div>
-
-  <div class="slide" data-notes="'I know what some think: 'Doesn't this encourage cheating?' Here's my response: The problem isn't the tool — it's how we use it. Calculators didn't destroy math. The internet didn't destroy research. We learned to use them well. AI is no different.'">
-    <div class="accent"></div>
-    <div class="badge">Counterargument</div>
-    <h2 class="s-title">What about cheating?</h2>
-    <div class="vs-grid">
-      <div class="vs-card red">
-        <div class="vsl red">✕ They say</div>
-        <h3>AI encourages cheating and laziness</h3>
-        <p>Students will stop thinking and just copy answers.</p>
-      </div>
-      <div class="vs-circle">VS</div>
-      <div class="vs-card green">
-        <div class="vsl green">✓ I say</div>
-        <h3>The problem is how we use it</h3>
-        <p>AI is like the internet — use it well or badly. <strong>Teach ethics, don't ban technology.</strong></p>
+      <div class="overview-card reveal">
+        <span class="overview-icon">🎓</span>
+        <div class="overview-label">Audience</div>
+        <div class="overview-value">University Students</div>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="slide" data-notes="'So here's my conclusion. AI helps us learn faster. Prepares us for careers. Makes us more creative. And when we teach responsible use instead of banning it — everyone wins. Don't fear AI. Learn to use it. Thank you.'">
-    <div class="accent"></div>
-    <h2 class="s-title">So here's what I believe</h2>
-    <div class="grid-4" style="max-width:650px">
-      <div class="scard">
-        <span class="sci">📚</span>
-        <div class="scl">Learn faster</div>
+<!-- INTRODUCTION -->
+<section id="intro">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Section 1</div>
+      <h2 class="section-title">Introduction</h2>
+      <p class="section-desc">Setting the stage — grabbing attention, building connection, and laying out the roadmap.</p>
+    </div>
+    <div class="intro-grid" style="margin-top:48px">
+
+      <div class="glass-card reveal">
+        <div class="intro-card-header">
+          <span class="intro-badge">💡</span>
+          <span class="intro-card-title">Attention Grabber</span>
+        </div>
+        <p class="intro-card-body">Imagine finishing your homework faster while understanding every topic better. AI is already changing the way we study, work, and communicate.<br><br><strong>Should students use AI — or should they avoid it?</strong></p>
       </div>
-      <div class="scard">
-        <span class="sci">💼</span>
-        <div class="scl">Career ready</div>
+
+      <div class="glass-card reveal">
+        <div class="intro-card-header">
+          <span class="intro-badge">🎓</span>
+          <span class="intro-card-title">Link to the Audience</span>
+        </div>
+        <p class="intro-card-body">As university students, we all want <strong>better grades, more free time, and better opportunities</strong> after graduation. AI is becoming part of our daily lives — learning how to use it affects every one of us.</p>
       </div>
-      <div class="scard">
-        <span class="sci">💡</span>
-        <div class="scl">Creative boost</div>
+
+      <div class="glass-card reveal">
+        <div class="intro-card-header">
+          <span class="intro-badge">🧠</span>
+          <span class="intro-card-title">Credentials</span>
+        </div>
+        <p class="intro-card-body">AI tools are already transforming education globally. After researching and using these tools firsthand, I discovered that <strong>they can improve learning when used responsibly</strong>.</p>
       </div>
-      <div class="scard">
-        <span class="sci">⚖️</span>
-        <div class="scl">Teach, don't ban</div>
+
+      <div class="glass-card reveal">
+        <div class="intro-card-header">
+          <span class="intro-badge">🎯</span>
+          <span class="intro-card-title">Goal</span>
+        </div>
+        <p class="intro-card-body">Today I want to convince you that <strong>students should learn to use Artificial Intelligence responsibly</strong> — instead of fearing it.</p>
+      </div>
+
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline reveal">
+      <div class="timeline-title">🗺️ Main Points — Today's Roadmap</div>
+      <ul class="timeline-list">
+        <li class="timeline-item">
+          <div class="timeline-dot">📚</div>
+          <div class="timeline-text"><strong>Point 1 —</strong> How AI helps students learn faster and more effectively.</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-dot">💼</div>
+          <div class="timeline-text"><strong>Point 2 —</strong> How AI prepares students for the careers of tomorrow.</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-dot">⚖️</div>
+          <div class="timeline-text"><strong>Point 3 —</strong> Why responsible use is far better than banning AI altogether.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BODY ARGUMENTS -->
+<section id="body-args">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Section 2 — Body</div>
+      <h2 class="section-title">Three Core Arguments</h2>
+      <p class="section-desc">Each argument builds the case that AI is a powerful ally for students — when approached with intention.</p>
+    </div>
+
+    <div class="args-grid">
+
+      <!-- Arg 1 -->
+      <div class="arg-card reveal">
+        <div class="arg-card-top">
+          <span class="arg-icon">📚</span>
+          <div class="arg-num">Argument 01</div>
+          <div class="arg-title">AI Helps Students Learn Faster</div>
+          <p class="arg-body">AI explains difficult topics in simple language. Students can ask questions as many times as needed — without embarrassment. It provides examples, exercises, and personalized explanations, making learning faster and more accessible for everyone.</p>
+        </div>
+        <div class="arg-evidence">
+          <button class="evidence-toggle" onclick="toggleEvidence(this)">
+            📊 See Evidence <span class="arrow">▾</span>
+          </button>
+          <div class="evidence-content">
+            <p class="evidence-text">Many educational platforms already use AI to personalize learning. Students receive explanations adapted to their own pace — meaning they aren't left behind or held back by a one-size-fits-all curriculum.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arg 2 -->
+      <div class="arg-card reveal">
+        <div class="arg-card-top">
+          <span class="arg-icon">💼</span>
+          <div class="arg-num">Argument 02</div>
+          <div class="arg-title">AI Prepares Students for Future Jobs</div>
+          <p class="arg-body">AI is becoming an essential tool in nearly every profession. Businesses already use AI to improve productivity and decision-making. Learning to work alongside AI today directly prepares students for the careers of tomorrow.</p>
+        </div>
+        <div class="arg-evidence">
+          <button class="evidence-toggle" onclick="toggleEvidence(this)">
+            📊 See Evidence <span class="arrow">▾</span>
+          </button>
+          <div class="evidence-content">
+            <p class="evidence-text">Companies in engineering, business, medicine, marketing, education, and technology are already integrating AI into daily operations. Students with demonstrated AI skills will have significantly more professional opportunities.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arg 3 -->
+      <div class="arg-card reveal">
+        <div class="arg-card-top">
+          <span class="arg-icon">💡</span>
+          <div class="arg-num">Argument 03</div>
+          <div class="arg-title">AI Improves Creativity & Problem Solving</div>
+          <p class="arg-body">AI does not replace creativity — it amplifies it. It helps students generate ideas, organize projects, improve their writing, and solve problems more efficiently. Students still make all the final decisions; AI simply removes friction.</p>
+        </div>
+        <div class="arg-evidence">
+          <button class="evidence-toggle" onclick="toggleEvidence(this)">
+            📊 See Evidence <span class="arrow">▾</span>
+          </button>
+          <div class="evidence-content">
+            <p class="evidence-text">Many educators now actively encourage responsible AI use for brainstorming, research, and feedback — treating it as a thinking partner rather than a shortcut. The key is teaching students when and how to engage with it.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERARGUMENT -->
+<section id="counter">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Section 3 — Counterargument</div>
+      <h2 class="section-title">Addressing the Opposition</h2>
+      <p class="section-desc">Every strong argument must engage honestly with the other side.</p>
+    </div>
+
+    <div class="counter-grid reveal">
+      <div class="counter-left">
+        <span class="counter-badge badge-red">❌ Opposite Opinion</span>
+        <div class="counter-head">AI Encourages Cheating & Laziness</div>
+        <p class="counter-body">Some people believe students should not use Artificial Intelligence because it encourages cheating and makes students lazy. They worry students will stop thinking for themselves and simply copy AI-generated answers without truly learning.</p>
+      </div>
+
+      <div class="vs-divider">VS</div>
+
+      <div class="counter-right">
+        <span class="counter-badge badge-green">✅ Stronger Response</span>
+        <div class="counter-head">The Problem Is How, Not What</div>
+        <p class="counter-body">Artificial Intelligence is only a tool. The problem is not the technology itself — it is how people choose to use it. Just like calculators and the Internet, AI can be used responsibly or irresponsibly. Instead of banning AI, schools should teach students how to use it ethically. Responsible use creates better learners, not lazy students.</p>
       </div>
     </div>
-    <div class="cta-box">
-      <div class="quote">"The future belongs to those who know how to work with technology."</div>
-      <p>Don't fear AI. Learn to use it wisely.</p>
-      <button class="btn" onclick="openTimer()">🎙️ Practice now</button>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Section 4 — Conclusion</div>
+      <h2 class="section-title">Bringing It All Together</h2>
+      <p class="section-desc">Three ideas that, together, make a clear case for the responsible adoption of AI in education.</p>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card reveal">
+        <div class="summary-icon">📚</div>
+        <p class="summary-text"><strong>Faster Learning</strong><br>AI personalizes explanations and removes barriers to understanding.</p>
+      </div>
+      <div class="summary-card reveal">
+        <div class="summary-icon">💼</div>
+        <p class="summary-text"><strong>Career Readiness</strong><br>AI skills prepare students for the real demands of the job market.</p>
+      </div>
+      <div class="summary-card reveal">
+        <div class="summary-icon">💡</div>
+        <p class="summary-text"><strong>Creative Growth</strong><br>AI amplifies ideas and problem-solving when used with intention.</p>
+      </div>
+      <div class="summary-card reveal">
+        <div class="summary-icon">⚖️</div>
+        <p class="summary-text"><strong>Responsibility Wins</strong><br>Teaching ethical use is far more effective than an outright ban.</p>
+      </div>
+    </div>
+
+    <div class="conclusion-final reveal">
+      <p class="final-quote">
+        "The future belongs to those who know<br>how to work with technology."
+      </p>
+      <p style="color:var(--text-muted); margin-bottom:28px; font-size:0.95rem; line-height:1.7">
+        Don't be afraid of Artificial Intelligence. Start learning how to use it responsibly.<br>
+        Use it to ask questions. Use it to improve your ideas. Use it to become a better student.
+      </p>
+      <button onclick="openPractice()" class="btn-cta">🎙️ Practice Your Speech Now</button>
     </div>
   </div>
+</section>
 
-</div>
+<!-- FULL SPEECH -->
+<section id="speech">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Complete Speech</div>
+      <h2 class="section-title">Read the Full Text</h2>
+      <p class="section-desc">The complete persuasive speech — ready to copy, print, or practice from.</p>
+    </div>
 
-<div id="bar">
-  <div id="dots"></div>
-  <div id="counter">1 / 9</div>
-  <div id="arrows">
-    <button class="arr" onclick="prev()" id="prevBtn">←</button>
-    <button class="arr" onclick="next()" id="nextBtn">→</button>
+    <div class="speech-card reveal" id="speech-card">
+      <button class="copy-btn" onclick="copySpeech()">📋 Copy Speech</button>
+      <div class="speech-text" id="speech-content">
+<h2>Introduction</h2>
+<h3>Attention Grabber</h3>
+<p>Imagine finishing your homework faster while understanding every topic better. Artificial Intelligence is already changing the way we study, work, and communicate. Every day, millions of students use AI to solve problems, learn faster, and improve their education. So, here is my question: <strong>Should students use Artificial Intelligence, or should they avoid it?</strong></p>
+
+<h3>Link to the Audience</h3>
+<p>As university students, we all want better grades, more free time, and better opportunities after graduation. Artificial Intelligence is becoming part of our daily lives, so learning how to use it affects every one of us.</p>
+
+<h3>Credentials</h3>
+<p>I became interested in this topic because AI tools are already transforming education around the world. After researching and using these tools myself, I discovered that they can improve learning when they are used responsibly.</p>
+
+<h3>Goal</h3>
+<p>Today I want to convince you that students should learn to use Artificial Intelligence responsibly instead of fearing it.</p>
+
+<h3>Main Points</h3>
+<p>During this speech I will explain: how AI helps students learn faster; how AI prepares students for future careers; and why responsible use is better than banning AI.</p>
+
+<h2>Body — Argument 1: AI Helps Students Learn Faster</h2>
+<p>Artificial Intelligence explains difficult topics in simple language. Students can ask questions as many times as they need without feeling embarrassed. AI provides examples, exercises, and personalized explanations. Learning becomes faster and more accessible.</p>
+<p><strong>Evidence:</strong> Many educational platforms already use AI to personalize learning. Students receive explanations adapted to their own pace.</p>
+
+<h2>Body — Argument 2: AI Prepares Students for Future Jobs</h2>
+<p>Artificial Intelligence is becoming an important tool in almost every profession. Businesses already use AI to improve productivity. Learning to work with AI today prepares students for tomorrow's careers.</p>
+<p><strong>Evidence:</strong> Companies in engineering, business, medicine, marketing, education, and technology are already using Artificial Intelligence. Students with AI skills will have more professional opportunities.</p>
+
+<h2>Body — Argument 3: AI Improves Creativity and Problem Solving</h2>
+<p>Artificial Intelligence does not replace creativity. Instead, it helps students generate ideas, organize projects, improve writing, and solve problems more efficiently. Students continue making the final decisions.</p>
+<p><strong>Evidence:</strong> Many teachers encourage responsible AI use for brainstorming, research, and feedback instead of copying answers.</p>
+
+<h2>Counterargument</h2>
+<p>Some people believe students should not use Artificial Intelligence because it encourages cheating and makes students lazy. They worry students will stop thinking for themselves.</p>
+<p>However, Artificial Intelligence is only a tool. The problem is not the technology. The problem is how people choose to use it. Just like calculators and the Internet, AI can be used responsibly or irresponsibly. Instead of banning AI, schools should teach students how to use it ethically. Responsible use creates better learners, not lazy students.</p>
+
+<h2>Conclusion</h2>
+<p>Artificial Intelligence helps students learn faster. It prepares us for future jobs. It also improves creativity when used responsibly. Instead of fearing AI, we should learn how to use it wisely.</p>
+
+<h3>Call to Action</h3>
+<p>Don't be afraid of Artificial Intelligence. Start learning how to use it responsibly. Use it to ask questions. Use it to improve your ideas. Use it to become a better student. The future belongs to those who know how to work with technology.</p>
+<p><strong>Thank you.</strong></p>
+      </div>
+
+      <button class="practice-mode-btn" onclick="openPractice()">
+        🎙️ Enter Practice Mode — Start Speech Timer
+      </button>
+    </div>
   </div>
-</div>
+</section>
 
-<div id="timerOverlay">
-  <div class="td" id="td">00:00</div>
-  <p class="tl">Aim for 3–5 minutes</p>
-  <div class="tc">
-    <button class="tb primary" onclick="start()">▶ Start</button>
-    <button class="tb" onclick="pause()">⏸ Pause</button>
-    <button class="tb" onclick="reset()">↺ Reset</button>
-    <button class="tb danger" onclick="closeTimer()">✕ Close</button>
+<!-- FOOTER -->
+<footer>
+  <span class="footer-icon">🤖</span>
+  <div class="footer-title">Students Should Learn to Use AI Responsibly</div>
+  <div class="footer-meta">
+    <div class="footer-item">
+      <span class="footer-item-label">Topic</span>
+      <span class="footer-item-value">Artificial Intelligence in Education</span>
+    </div>
+    <div class="footer-item">
+      <span class="footer-item-label">Format</span>
+      <span class="footer-item-value">Persuasive Speech</span>
+    </div>
+    <div class="footer-item">
+      <span class="footer-item-label">Duration</span>
+      <span class="footer-item-value">3 – 5 Minutes</span>
+    </div>
+    <div class="footer-item">
+      <span class="footer-item-label">Level</span>
+      <span class="footer-item-value">University</span>
+    </div>
   </div>
-  <p class="th"><span>🟢 0–3</span> <span>🟡 3–5</span> <span>🔴 5+</span></p>
+  <p class="footer-copy">Thank you for visiting this presentation. 🚀</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- PRACTICE OVERLAY -->
+<div id="practice-overlay">
+  <div class="practice-title">🎙️ Practice Mode</div>
+  <p class="practice-sub">Time your speech. Aim for 3–5 minutes for a great delivery.</p>
+  <div class="practice-timer" id="practice-time">00:00</div>
+  <div class="practice-controls">
+    <button class="prac-btn prac-start" onclick="startTimer()">▶ Start</button>
+    <button class="prac-btn prac-stop" onclick="stopTimer()">⏸ Pause</button>
+    <button class="prac-btn prac-reset" onclick="resetTimer()">↺ Reset</button>
+    <button class="prac-btn prac-close" onclick="closePractice()">✕ Close</button>
+  </div>
+  <p class="practice-hint">🟢 0–3 min &nbsp;&nbsp; 🟡 3–5 min (ideal) &nbsp;&nbsp; 🔴 5+ min</p>
 </div>
 
 <script src="script.js"></script>
