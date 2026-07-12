@@ -162,7 +162,8 @@ section{padding:90px 20px}
 .s-icon{font-size:2rem;margin-bottom:8px;display:block}
 .s-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
 .s-card p strong{color:var(--white)}
-.final{text-align:center;margin-top:16px}
+#final{padding:40px 20px 60px}
+.final{text-align:center;margin-top:0}
 .quote{font-family:'Poppins',sans-serif;font-size:clamp(1rem,2.2vw,1.5rem);font-weight:700;line-height:1.4;margin-bottom:24px;background:linear-gradient(135deg,var(--white),var(--cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .final-text{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:12px}
 .thank-you{font-size:1.2rem;color:var(--cyan)}
@@ -188,7 +189,7 @@ footer{background:rgba(30,41,59,0.6);border-top:1px solid var(--border);padding:
 @media(prefers-reduced-motion:reduce){.reveal,.hero-icon,.orb{animation:none;transition:none}}
 
 /* Sections scroll offset */
-#overview,#intro,#args,#counter,#conclusion{scroll-margin-top:70px}
+#overview,#intro,#args,#counter,#conclusion,#final{scroll-margin-top:70px}
 
 /* Mobile */
 @media(max-width:768px){
