@@ -29,8 +29,8 @@
   <span class="nav-logo">🤖 AI in Education</span>
   <ul class="nav-links">
     <li><a href="#args">Arguments</a></li>
-    <li><a href="#counter">Counter</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#conclusion">Conclusión</a></li>
+    <li><a href="#counter">Contra</a></li>
   </ul>
 </nav>
 
@@ -107,38 +107,71 @@
   </div>
 </section>
 
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Parte 3</div>
+      <h2 class="section-title">Lo que yo creo</h2>
+    </div>
+    <div class="summary-grid">
+      <div class="s-card reveal">
+        <span class="s-icon">📚</span>
+        <p><strong>Aprende más rápido</strong><br>la IA se adapta a ti.</p>
+      </div>
+      <div class="s-card reveal">
+        <span class="s-icon">💼</span>
+        <p><strong>Habilidades para el futuro profesional</strong></p>
+      </div>
+      <div class="s-card reveal">
+        <span class="s-icon">💡</span>
+        <p><strong>Impulsa tu creatividad</strong><br>Amplifica tus ideas.</p>
+      </div>
+      <div class="s-card reveal">
+        <span class="s-icon">⚖️</span>
+        <p><strong>Enseñar, no prohibir</strong><br>Ética por miedo.</p>
+      </div>
+    </div>
+    <div class="final reveal">
+      <p class="quote">"El futuro le pertenece a quienes saben trabajar con la tecnología."</p>
+      <p class="final-text">No le temas a la IA. Aprende a usarla. Conviértete en un mejor estudiante.</p>
+      <p class="thank-you"><strong>Gracias.</strong></p>
+    </div>
+  </div>
+</section>
+
 <!-- COUNTER -->
 <section id="counter">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Part 3</div>
-      <h2 class="section-title">But what about cheating?</h2>
+      <div class="section-label">Parte 4</div>
+      <h2 class="section-title">¿Pero qué pasa con las trampas?</h2>
     </div>
     <div class="counter-grid reveal">
       <div class="c-left">
-        <span class="c-badge red">✕ They say</span>
-        <div class="c-head">AI causes cheating</div>
-        <p class="c-body">Students will just copy answers and stop learning.</p>
+        <span class="c-badge red">✕ Dicen</span>
+        <div class="c-head">La IA provoca trampas</div>
+        <p class="c-body">Los estudiantes simplemente copiarán las respuestas y dejarán de aprender.</p>
       </div>
       <div class="c-vs">VS</div>
       <div class="c-right">
-        <span class="c-badge green">✓ I say</span>
-        <div class="c-head">It's about how we use it</div>
-        <p class="c-body">Like the internet, AI can be used well or badly. <strong>Teach ethics, don't ban.</strong></p>
+        <span class="c-badge green">✓ Yo digo</span>
+        <div class="c-head">Se trata de cómo lo usamos.</div>
+        <p class="c-body">Al igual que internet, la IA puede usarse bien o mal. <strong>Enseñemos ética, no prohibamos.</strong></p>
       </div>
     </div>
     <div class="vote-box reveal">
-      <p class="vote-question">What do you think?</p>
+      <p class="vote-question">¿Qué opinas?</p>
       <div class="vote-btns">
         <button class="vote-btn" onclick="vote('agree')">
-          <span>👍</span> Agree
+          <span>👍</span> Aceptar
           <span class="vote-pct" id="pct-agree">0</span>
         </button>
         <button class="vote-btn" onclick="vote('disagree')">
-          <span>👎</span> Disagree
+          <span>👎</span> Discrepar
           <span class="vote-pct" id="pct-disagree">0</span>
         </button>
-        <button class="vote-btn vote-reset" onclick="resetVotes()">↺ Reset</button>
+        <button class="vote-btn vote-reset" onclick="resetVotes()">↺ Reiniciar</button>
       </div>
       <div class="vote-chart">
         <div class="hist-wrap">
@@ -148,7 +181,7 @@
             <div class="hist-track">
               <div class="hist-fill hist-fill-agree" id="bar-agree"></div>
             </div>
-            <div class="hist-label">👍 Agree</div>
+            <div class="hist-label">👍 De acuerdo</div>
           </div>
           <div class="hist-bar-col">
             <div class="hist-val" id="h-val-disagree">0</div>
@@ -156,51 +189,18 @@
             <div class="hist-track">
               <div class="hist-fill hist-fill-disagree" id="bar-disagree"></div>
             </div>
-            <div class="hist-label">👎 Disagree</div>
+            <div class="hist-label">👎 No estoy de acuerdo</div>
           </div>
         </div>
       </div>
       <div class="qr-box">
-        <button class="qr-toggle" onclick="toggleQR()">📱 Scan to vote</button>
+        <button class="qr-toggle" onclick="toggleQR()">📱 Escanea para votar</button>
         <div id="qr-content" class="qr-content">
           <img id="qr-img" src="" alt="QR Code" class="qr-img">
           <p class="qr-url" id="qr-url"></p>
-          <p class="qr-hint">Open your phone camera and scan the QR code</p>
+          <p class="qr-hint">Abre la cámara de tu teléfono y escanea el código QR</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCLUSION -->
-<section id="conclusion">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Part 4</div>
-      <h2 class="section-title">What I believe</h2>
-    </div>
-    <div class="summary-grid">
-      <div class="s-card reveal">
-        <span class="s-icon">📚</span>
-        <p><strong>Learn faster</strong><br>AI adapts to you</p>
-      </div>
-      <div class="s-card reveal">
-        <span class="s-icon">💼</span>
-        <p><strong>Career ready</strong><br>Skills for tomorrow</p>
-      </div>
-      <div class="s-card reveal">
-        <span class="s-icon">💡</span>
-        <p><strong>Creative boost</strong><br>Amplify your ideas</p>
-      </div>
-      <div class="s-card reveal">
-        <span class="s-icon">⚖️</span>
-        <p><strong>Teach, don't ban</strong><br>Ethics over fear</p>
-      </div>
-    </div>
-    <div class="final reveal">
-      <p class="quote">"The future belongs to those who know how to work with technology."</p>
-      <p class="final-text">Don't fear AI. Learn to use it. Become a better student.</p>
-      <p class="thank-you"><strong>Thank you.</strong></p>
     </div>
   </div>
 </section>
